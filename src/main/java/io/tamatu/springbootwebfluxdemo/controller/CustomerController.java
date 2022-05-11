@@ -23,6 +23,11 @@ public class CustomerController {
         return service.loadAllCustomers();
     }
 
+    /*
+    Asynchronous and nonblocking
+    subscriber can cancel the request at any time
+    chrome broser -> X button i.e.
+     */
     @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Customer> getAllCustomersStream(){
         return service.loadAllCustomersStream();
