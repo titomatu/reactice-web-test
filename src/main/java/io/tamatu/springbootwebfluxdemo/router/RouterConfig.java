@@ -23,7 +23,9 @@ public class RouterConfig {
         return RouterFunctions.route()
                 .GET("/router/customers", handler::loadCustomers) //functional endpoint
                 //n-number of endpoints PUT, GET, POST...
-                .GET("/router/customers/stream", streamHandler::getCustomers)
+                .GET("/router/customers/{input}", handler::findCustomer)
+                .POST("/router/customers", handler::saveCustomer)
+                .GET("/router/customers/stream", streamHandler::getCustomers) //stream
                 .build();
     }
 }
